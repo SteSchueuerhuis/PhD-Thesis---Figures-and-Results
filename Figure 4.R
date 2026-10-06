@@ -1,10 +1,7 @@
-# Figure 4
-# --------
 # This script reproduces Figure 4 of the PhD thesis.
 
 # install.packages("ggplot2")
 library(ggplot2)
-
 
 # Parameter settings ------------------------------------------------------
 
@@ -103,7 +100,7 @@ ggplot(df, aes(x = gamma)) +
   annotate(
     "text",
     x = 0.60,
-    y = 2.60,
+    y = 2.50,
     label = "Pause recruitment",
     color = "grey20"
   ) +
@@ -121,15 +118,25 @@ ggplot(df, aes(x = gamma)) +
     label = "Continue recruitment",
     color = "grey20"
   ) +
-  theme_bw(base_size = 12) +
+  theme_bw(base_size = 16) +
   theme(
     strip.text = element_text(
-      size = 12,
+      size = 16,
       margin = margin(t = 1, b = 1)
     ),
     axis.title = element_text(size = 16),
-    axis.text = element_text(size = 14),
+    axis.text = element_text(size = 16),
     legend.position = "bottom",
-    legend.text = element_text(size = 16),
+    legend.text = element_text(size = 18),
     legend.title = element_blank()
   )
+
+# Save Figure 4 ----------------------------------------------------------
+
+ggsave(
+  filename = "Figure_4.pdf",
+  plot = last_plot(),
+  width = 11,
+  height = 7,
+  units = "in"
+)
